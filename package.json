@@ -1,0 +1,26 @@
+{
+  "name": "capacitor-panel-helpers",
+  "version": "0.1.0",
+  "description": "Helper methods for devtools development",
+  "main": "lib/devtools-helpers.js",
+  "scripts": {
+    "test": "gulp test",
+    "ci-test": "gulp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capacitorjs/panel-helpers.git"
+  },
+  "keywords": [],
+  "author": "Christian Maher",
+  "bugs": {
+    "url": "https://github.com/capacitorjs/panel-helpers/issues"
+  },
+  "homepage": "https://github.com/capacitorjs/panel-helpers#readme",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "eslintrc": "git+https://github.com/capacitorjs/eslintrc.git#v1.0.0",
+    "gulp": "^3.9.0",
+    "gulp-capacitorjs-common": "git+https://github.com/capacitorjs/gulp-capacitorjs-common.git#v0.1.2"
+  }
+}
