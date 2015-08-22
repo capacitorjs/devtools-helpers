@@ -1,5 +1,5 @@
 {
-  "name": "capacitor-panel-helpers",
+  "name": "capacitor-devtools-helpers",
   "version": "0.1.0",
   "description": "Helper methods for devtools development",
   "main": "lib/devtools-helpers.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/capacitorjs/panel-helpers.git"
+    "url": "git+https://github.com/capacitorjs/devtools-helpers.git"
   },
   "keywords": [],
   "author": "Christian Maher",
   "bugs": {
-    "url": "https://github.com/capacitorjs/panel-helpers/issues"
+    "url": "https://github.com/capacitorjs/devtools-helpers/issues"
   },
-  "homepage": "https://github.com/capacitorjs/panel-helpers#readme",
+  "homepage": "https://github.com/capacitorjs/devtools-helpers#readme",
   "license": "CC0-1.0",
   "devDependencies": {
     "eslintrc": "git+https://github.com/capacitorjs/eslintrc.git#v1.0.0",
