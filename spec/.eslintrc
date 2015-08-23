@@ -1,5 +1,5 @@
 {
-  "extends": "../node_modules/eslintrc/spec.eslintrc",
+  "extends": "../node_modules/capacitor-eslintrc/spec.eslintrc",
   "globals": {
     "chrome": true
   }
