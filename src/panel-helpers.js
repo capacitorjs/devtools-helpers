@@ -9,9 +9,7 @@ export default {
   connectToBackground(portName) {
     return new Promise(function (resolve) {
       // Create a connection to the background page
-      const port = chrome.runtime.connect({
-        name: portName
-      });
+      const port = chrome.runtime.connect({name: portName});
 
       const listener = function (message) {
         if (message.name === 'background:connect') {
@@ -61,7 +59,7 @@ export default {
    */
   proxyEvents(port, emitter) {
     const backgroundListener = function (message) {
-      if (message.name === 'tunnel:devtools') {
+      if (message.name === 'tunnel:panel') {
         emitter.emit(message.event, message.payload);
       }
     };
@@ -110,6 +108,9 @@ export default {
   /**
    * A convenience method to forward messages, inject a content page,
    * and inject an inspected script
+   *
+   * Note that this does not provide the convenient ability to tear down listeners,
+   * as it assumes the event-listening will be running for the lifetime of the application
    * @param portName
    * @param emitter a node-sytle event emitter
    * @param contentScript the location of the content script to inject

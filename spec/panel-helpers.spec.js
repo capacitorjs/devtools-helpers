@@ -54,8 +54,8 @@ describe('PanelHelpers', function () {
           .and.calledWith(this.listener);
       });
 
-      it('resolves the returned promise', function () {
-        return this.result;
+      it('resolves the returned promise with the port', function () {
+        return expect(this.result).to.eventually.equal(this.port);
       });
     });
   });
@@ -159,9 +159,9 @@ describe('PanelHelpers', function () {
         });
     });
 
-    it('forwards tunnel:devtools events from the port to the emitter', function () {
+    it('forwards tunnel:panel events from the port to the emitter', function () {
       this.portHandler({
-        name: 'tunnel:devtools',
+        name: 'tunnel:panel',
         event: 'event',
         payload: {payload: true}
       });
