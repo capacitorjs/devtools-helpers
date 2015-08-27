@@ -5,6 +5,7 @@ beforeEach(function () {
   window.chrome = window.chrome || {};
   window.chrome.runtime = window.chrome.runtime || {};
   window.chrome.devtools = window.chrome.devtools || {};
+  window.chrome.tabs = window.chrome.tabs || {};
   this.server = sinon.fakeServer.create();
 });
 
