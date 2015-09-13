@@ -6,14 +6,15 @@ describe('TunnelUtils', function () {
   describe('tunnelEvent', function () {
     beforeEach(function () {
       this.callback = this.sandbox.stub();
-      this.tunneled = TunnelUtils.tunnelEvents('tunnel', this.callback);
+      this.targetWindow = document.createElement('iframe');
+      this.tunneled = TunnelUtils.tunnelEvents(this.targetWindow, 'tunnel', this.callback);
     });
 
     it('forwards "tunnel:injected" events from the content to the emitter', function () {
       const message = {name: 'tunnel'};
       this.tunneled({
         data: message,
-        source: window
+        source: this.targetWindow
       });
       expect(this.callback).to.have.been.calledOnce
         .and.calledWith(message);

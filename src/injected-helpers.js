@@ -1,6 +1,6 @@
 'use strict';
 
-import TunnelUtils from './tunnel-utils.js';
+import EmitterWindowBridge from './emitter-window-bridge'
 
 export default {
   /**
@@ -10,26 +10,6 @@ export default {
    * @return a function that tears down the listeners
    */
   proxyEvents(emitter) {
-    // publish content script messages to the emitter
-    const contentToEmitter = TunnelUtils.tunnelEvents('tunnel:injected', function (message) {
-      emitter.emit(message.event, message.payload);
-    });
-
-    // publish emitter events to the content script
-    const emitterToContent = function (event, payload) {
-      window.postMessage({
-        name: 'tunnel:panel',
-        event,
-        payload
-      }, '*');
-    };
-
-    window.addEventListener('message', contentToEmitter);
-    emitter.on('tunnel:panel', emitterToContent);
-
-    return function () {
-      window.removeEventListener('message', contentToEmitter);
-      emitter.removeListener('tunnel:panel', emitterToContent);
-    };
+    return EmitterWindowBridge.proxyEvents(window, window, emitter, 'tunnel:panel', 'tunnel:injected');
   }
 };

@@ -5,11 +5,11 @@ export default {
    * Wraps the givent function, ensuring that it will only be called
    * when the message has the given eventName and originates from the same window
    */
-  tunnelEvents(eventName, fn) {
+  tunnelEvents(sourceWindow, eventName, fn) {
     return function (event) {
       const message = event.data;
       if (
-        event.source !== window
+        event.source !== sourceWindow
         || typeof message !== 'object'
         || message == null
         || message.name !== eventName

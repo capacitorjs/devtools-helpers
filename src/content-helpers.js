@@ -24,7 +24,7 @@ export default {
    */
   proxyEvents(port) {
     // tunnel events from the injected script to the panel
-    const injectedToPanel = TunnelUtils.tunnelEvents('tunnel:panel', function (message) {
+    const injectedToPanel = TunnelUtils.tunnelEvents(window, 'tunnel:panel', function (message) {
       port.postMessage(message);
     });
 
